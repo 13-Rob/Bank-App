@@ -17,6 +17,23 @@ public class PaymentsController : Controller {
         return View(await _context.Payment.ToListAsync());
     }
 
+    // GET: /Payments/Create
+    public IActionResult Create() {
+        return View();
+    }
+
+    // POST /Payments/Create
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> Create([Bind("Id,Description,Date,Amount")] Payment payment) {
+        if (ModelState.IsValid) {
+            _context.Add(payment);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+        }
+        return View(payment);
+    }
+
     // GET: /Payments/Details/5
     public async Task<IActionResult> Details(int? id) {
         if (id == null) {
