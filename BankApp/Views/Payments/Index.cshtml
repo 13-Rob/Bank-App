@@ -25,13 +25,15 @@
                 @Html.DisplayNameFor(model => model.Description)
             </th>
             <th></th>
+            <th></th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
         @foreach (var item in Model) {
             <tr>
                 <td>
-                    @* <input type="checkbox" /> *@
+                    <input type="checkbox" id="@item.Id"/>
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Id)
@@ -47,7 +49,11 @@
                 </td>
                 <td>
                     <a asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                </td>
+                <td>
                     <a asp-action="Details" asp-route-id="@item.Id">Details</a>
+                </td>
+                <td>
                     <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
                 </td>
             </tr>
@@ -55,8 +61,20 @@
     </tbody>
 </table>
 
-<form>
-    <div class="form-actions">
-        <input type="submit" asp-action="Create" value="Make a Payment">
+<div class="row">
+    <div class="col-md-2">
+        <form>
+            <div class="form-actions">
+                <input type="submit" asp-action="Create" value="Make a Payment">
+            </div>
+        </form>
     </div>
-</form>
+
+    <div class="col-md-2">
+        <form method="post">
+            <div class="form-actions">
+                <input type="submit" asp-action="DeleteMany" value="Delete Multiple">
+            </div>
+        </form>
+    </div>
+</div>

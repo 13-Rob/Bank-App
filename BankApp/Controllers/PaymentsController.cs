@@ -84,4 +84,11 @@ public class PaymentsController : Controller {
         await _context.SaveChangesAsync();
         return RedirectToAction(nameof(Index));
     }
+
+    // POST: /Payments/DeleteMany
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public void DeleteMany(int[] ids) {
+        Console.WriteLine("DeleteMany: " + ids.Length);
+    }
 }
