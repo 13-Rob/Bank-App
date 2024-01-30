@@ -1,4 +1,10 @@
+using BankApp.Data;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddDbContext<PaymentContext>(options =>
+    options.UseSqlite(builder.Configuration.GetConnectionString("PaymentContext")));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
