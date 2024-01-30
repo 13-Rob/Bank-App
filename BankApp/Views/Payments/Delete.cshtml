@@ -39,6 +39,8 @@
     </dl>
 </div>
 
-<div>
-    <a asp-action="Delete" asp-route-id="@Model.Id">Delete</a> | <a asp-action="Index">Back to List</a>
-</div>
+<form method="post">
+    <input type="hidden" asp-for="Id" />
+    <div class="form-actions">
+        <input type="submit" value="Delete"> | <input type="submit" asp-action="Index" value="Back to List">
+</form>

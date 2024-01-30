@@ -59,4 +59,29 @@ public class PaymentsController : Controller {
         }
         return View(payment);
     }
+
+    // GET: /Payments/Delete/5
+    public async Task<IActionResult> Delete(int? id) {
+        if (id == null) {
+            return NotFound();
+        }
+
+        var payment = await _context.Payment.FirstOrDefaultAsync(m => m.Id == id);
+        if (payment == null) {
+            return NotFound();
+        }
+        return View(payment);
+    }
+
+    // POST: /Payments/Delete/5
+    [HttpPost, ActionName("Delete")]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> DeleteConfirmed(int id) {
+        var payment = await _context.Payment.FindAsync(id);
+        if (payment != null) {
+            _context.Payment.Remove(payment);
+        }
+        await _context.SaveChangesAsync();
+        return RedirectToAction(nameof(Index));
+    }
 }
