@@ -13,7 +13,7 @@ public class Payment {
 
     [Display(Name = "Payment Date")]
     [DataType(DataType.Date)]
-    [DisplayFormat(DataFormatString ="0:yyyy-MM-dd")]
+    [DisplayFormat(DataFormatString="{0:yyyy-MM-dd}")]
     public DateTime Date { get; set; }
 
     [Range(0.01, 1000000)]

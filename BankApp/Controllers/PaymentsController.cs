@@ -12,10 +12,7 @@ public class PaymentsController : Controller {
         _context = context;
     }
 
-    public IActionResult Index() {
-        if (_context == null) {
-            return NotFound();
-        }
-        return View();
+    public async Task<IActionResult> Index() {
+        return View(await _context.Payment.ToListAsync());
     }
 }
