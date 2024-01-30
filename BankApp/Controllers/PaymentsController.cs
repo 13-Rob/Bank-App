@@ -6,13 +6,16 @@ using BankApp.Data;
 using BankApp.Models;
 
 public class PaymentsController : Controller {
-    // private readonly MvcPaymentContext _context;
+    private readonly PaymentContext _context;
 
-    // public PaymentsController(MvcPaymentContext context) {
-    //     _context = context;
-    // }
+    public PaymentsController(PaymentContext context) {
+        _context = context;
+    }
 
     public IActionResult Index() {
+        if (_context == null) {
+            return NotFound();
+        }
         return View();
     }
 }
