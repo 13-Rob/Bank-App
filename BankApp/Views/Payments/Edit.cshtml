@@ -1,0 +1,16 @@
+@model BankApp.Models.Payment;
+
+@{
+    ViewData["Title"] = "Payment";
+}
+
+<h1>Payment Details</h1>
+<hr />
+
+<div>
+    <h4>Edit Payment Information</h4>
+</div class="text-center">
+
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> | <a asp-action="Index">Back to List</a>
+</div>
