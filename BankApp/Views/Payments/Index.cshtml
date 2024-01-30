@@ -1,4 +1,4 @@
-@* @model BankApp.Models. *@
+@model IEnumerable<BankApp.Models.Payment>
 
 @{
     ViewData["Title"] = "Payments";
@@ -12,13 +12,35 @@
     <thead>
         <tr>
             <th>
-
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Amount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
             </th>
         </tr>
     </thead>
     <tbody>
-        @* @foreach (var item in Model.Payments!)
-        {
+        @* @foreach (var item in Model) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Date)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Amount)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+            </tr>
         } *@
     </tbody>
 </table>
